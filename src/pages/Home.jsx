@@ -1,11 +1,16 @@
 // src/pages/Home.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import astronautImg from '../assets/astronaut.png';
 import projects from '../data/projects';
+import certificates from '../data/certificates';
+import CertificateCard from '../components/CertificateCard';
+import CertificateModal from '../components/CertificateModal';
 
 export default function Home() {
+  const [activeCert, setActiveCert] = useState(null);
   const featuredProjects = projects.slice(0, 3);
+  const featuredCertificates = certificates.slice(0, 3);
 
   return (
     <div className="space-y-20 md:space-y-28">
@@ -31,7 +36,7 @@ export default function Home() {
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-              Olá! Sou <strong className="text-gray-900 dark:text-white font-semibold">Felipe Caliman</strong>, profissional de Tecnologia da Informação graduado em ADS. Atuo com desenvolvimento de software (<span className="text-indigo-600 dark:text-indigo-400 font-medium">PHP, Laravel, JavaScript, React</span>), banco de dados (<span className="text-indigo-600 dark:text-indigo-400 font-medium">SQL Server</span>), relatórios no <span className="text-indigo-600 dark:text-indigo-400 font-medium">Power BI</span> e suporte corporativo de alto nível.
+              Olá! Sou <strong className="text-gray-900 dark:text-white font-semibold">Felipe Caliman</strong>, profissional de Tecnologia da Informação graduado em ADS. Atuo com desenvolvimento de software (<span className="text-indigo-600 dark:text-indigo-400 font-medium">PHP, Laravel, JavaScript, React</span>), banco de dados (<span className="text-indigo-600 dark:text-indigo-400 font-medium">SQL Server</span>), relatórios no <span className="text-indigo-600 dark:text-indigo-400 font-medium">Power BI</span> e inteligência artificial aplicada.
             </p>
 
             {/* CTA Buttons */}
@@ -53,7 +58,7 @@ export default function Home() {
                 <svg className="w-5 h-5 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <span>Ver Currículo</span>
+                <span>Ver Currículo & Certificados</span>
               </Link>
 
               <a
@@ -97,7 +102,7 @@ export default function Home() {
                   <span className="px-2.5 py-1 rounded-lg bg-gray-800/90 text-indigo-300 border border-gray-700">PHP & Laravel</span>
                   <span className="px-2.5 py-1 rounded-lg bg-gray-800/90 text-purple-300 border border-gray-700">SQL Server</span>
                   <span className="px-2.5 py-1 rounded-lg bg-gray-800/90 text-pink-300 border border-gray-700">React & JS</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-gray-800/90 text-amber-300 border border-gray-700">Power BI</span>
+                  <span className="px-2.5 py-1 rounded-lg bg-gray-800/90 text-amber-300 border border-gray-700">Agentes & IA</span>
                 </div>
               </div>
             </div>
@@ -126,9 +131,9 @@ export default function Home() {
         </div>
 
         <div className="p-6 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800/80 shadow-sm hover:border-indigo-500/40 transition">
-          <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400">ERP & DB</div>
-          <div className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Implantação e Suporte</div>
-          <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">SQL Server, Assenture, FoxPro</div>
+          <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400">5 Certificações</div>
+          <div className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">IA, Agentes & Dev</div>
+          <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">Credenciais em PDF autênticas</div>
         </div>
       </section>
 
@@ -163,10 +168,26 @@ export default function Home() {
           {/* Card 2 */}
           <div className="p-6 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800/80 shadow-sm hover:shadow-md transition">
             <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-xl mb-4">
+              🤖
+            </div>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Inteligência Artificial & Python</h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Modelos de IA, agentes autônomos e scripts Python.</p>
+            <div className="flex flex-wrap gap-2 text-xs">
+              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">IA Generativa & LLMs</span>
+              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Chatbots & Copilots</span>
+              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Agentes Inteligentes</span>
+              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Python</span>
+              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Java + IA</span>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="p-6 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800/80 shadow-sm hover:shadow-md transition">
+            <div className="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center font-bold text-xl mb-4">
               🗄️
             </div>
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Banco de Dados & BI</h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Armazenamento, consultas e inteligência de negócios.</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Armazenamento, consultas e inteligência analítica.</p>
             <div className="flex flex-wrap gap-2 text-xs">
               <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">SQL Server</span>
               <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Power BI</span>
@@ -176,9 +197,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Card 3 */}
+          {/* Card 4 */}
           <div className="p-6 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800/80 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center font-bold text-xl mb-4">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xl mb-4">
               ⚙️
             </div>
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Sistemas & Infra TI</h3>
@@ -188,23 +209,7 @@ export default function Home() {
               <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">ERP (Assenture, FoxPro)</span>
               <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Scripts VBScript</span>
               <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Impressoras Fiscais</span>
-              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Hardware & Redes</span>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800/80 shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xl mb-4">
-              🛠️
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Ferramentas & Design</h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Produtividade, versionamento e comunicação visual.</p>
-            <div className="flex flex-wrap gap-2 text-xs">
               <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Git & GitHub</span>
-              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">VS Code</span>
-              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Photoshop & Illustrator</span>
-              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">InDesign & Corel</span>
-              <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium">Pacote Office</span>
             </div>
           </div>
         </div>
@@ -301,6 +306,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Certifications Showcase Section */}
+      <section className="space-y-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-semibold uppercase tracking-wider mb-2">
+              Credenciais & Conhecimento Contínuo
+            </div>
+            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">
+              Certificações em IA & Desenvolvimento
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+              Capacitações práticas em Inteligência Artificial Moderna, Agentes Autônomos, Python, Java e Web Full-Stack com certificados em PDF autênticos.
+            </p>
+          </div>
+          <Link
+            to="/curriculo"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 group"
+          >
+            <span>Ver todas as certificações ({certificates.length})</span>
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredCertificates.map((cert) => (
+            <CertificateCard
+              key={cert.id}
+              certificate={cert}
+              onSelect={(c) => setActiveCert(c)}
+            />
+          ))}
+        </div>
+      </section>
+
       {/* Quick Contact Banner */}
       <section className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 text-white p-8 sm:p-12 shadow-2xl">
         <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
@@ -330,6 +371,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Modal for PDF Viewer */}
+      {activeCert && (
+        <CertificateModal
+          certificate={activeCert}
+          onClose={() => setActiveCert(null)}
+        />
+      )}
     </div>
   );
 }

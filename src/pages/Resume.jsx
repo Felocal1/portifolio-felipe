@@ -3,9 +3,13 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import resumeContent from '../Resume.md?raw';
+import certificates from '../data/certificates';
+import CertificateCard from '../components/CertificateCard';
+import CertificateModal from '../components/CertificateModal';
 
 export default function Resume() {
   const [showRawMarkdown, setShowRawMarkdown] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   const experiences = [
     {
@@ -74,20 +78,18 @@ export default function Resume() {
     { name: 'SQL Server', category: 'Database' },
     { name: 'PHP & Laravel', category: 'Backend' },
     { name: 'JavaScript & React', category: 'Frontend' },
+    { name: 'Inteligência Artificial & LLMs', category: 'AI' },
+    { name: 'Chatbots & Agentes Autônomos', category: 'AI' },
+    { name: 'Python', category: 'Backend' },
     { name: 'Power BI', category: 'Analytics' },
     { name: 'HTML5, CSS3 & Tailwind', category: 'Frontend' },
     { name: 'Bootstrap 5', category: 'Frontend' },
     { name: 'Suporte Técnico & Hardware', category: 'Infra' },
     { name: 'VBScript & Automação', category: 'Scripts' },
-    { name: 'Git & GitHub', category: 'Tools' },
-    { name: 'Photoshop & Illustrator', category: 'Design' },
-    { name: 'Pacote Office Avançado', category: 'Produtividade' }
+    { name: 'Git & GitHub', category: 'Tools' }
   ];
 
-  const certifications = [
-    'Alura – Bootstrap 5, HTML, CSS e JavaScript',
-    'Python – Desenvolvendo uma primeira aplicação',
-    'Flutter – Criando um App',
+  const additionalCourses = [
     'Power BI – Hashtag Treinamentos Online',
     'Montagem e Manutenção de Computadores – Microcamp',
     'Designer Gráfico – Corel Draw, Photoshop, Illustrator e InDesign',
@@ -95,7 +97,7 @@ export default function Resume() {
   ];
 
   return (
-    <div className="space-y-12 max-w-4xl mx-auto">
+    <div className="space-y-12 max-w-5xl mx-auto">
       {/* Top Profile / Header Card */}
       <section className="relative rounded-3xl bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800/80 p-6 sm:p-10 shadow-sm overflow-hidden">
         {/* Decorative corner glow */}
@@ -122,7 +124,7 @@ export default function Resume() {
             </p>
 
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              Profissional de TI com sólida vivência em suporte corporativo, implantação de sistemas ERP, desenvolvimento web (PHP, Laravel, JavaScript, React) e banco de dados SQL Server. Graduado em ADS com perfil analítico, organizado e resolutivo.
+              Profissional de TI com sólida vivência em suporte corporativo, implantação de sistemas ERP, desenvolvimento web (PHP, Laravel, JavaScript, React), administração de bancos de dados SQL Server e capacitações práticas em Inteligência Artificial e Automação de Agentes.
             </p>
 
             {/* Contact Pills */}
@@ -274,6 +276,38 @@ export default function Resume() {
         </div>
       </section>
 
+      {/* Verified Certificates & Credentials Showcase */}
+      <section className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-lg">
+              📜
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Certificações & Credenciais Verificadas
+              </h2>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                Documentos oficiais em PDF com visualizador interativo integrado
+              </p>
+            </div>
+          </div>
+          <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            5 Certificados Disponíveis
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certificates.map((cert) => (
+            <CertificateCard
+              key={cert.id}
+              certificate={cert}
+              onSelect={(c) => setSelectedCertificate(c)}
+            />
+          ))}
+        </div>
+      </section>
+
       {/* Academic Education Section */}
       <section className="space-y-6">
         <div className="flex items-center gap-3">
@@ -343,18 +377,18 @@ export default function Resume() {
         </div>
       </section>
 
-      {/* Certifications and Languages */}
+      {/* Additional Courses & Languages */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Certifications */}
+        {/* Additional Courses */}
         <div className="md:col-span-2 p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800/80 shadow-sm space-y-4">
           <div className="flex items-center gap-2">
-            <span className="text-xl">📜</span>
+            <span className="text-xl">📚</span>
             <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-              Cursos & Certificações
+              Outras Capacitações & Formações
             </h3>
           </div>
           <ul className="space-y-2 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-            {certifications.map((c, i) => (
+            {additionalCourses.map((c, i) => (
               <li key={i} className="flex items-center gap-2">
                 <span className="text-indigo-500 font-bold">✓</span>
                 <span>{c}</span>
@@ -393,6 +427,14 @@ export default function Resume() {
           </div>
         </div>
       </section>
+
+      {/* PDF Modal */}
+      {selectedCertificate && (
+        <CertificateModal
+          certificate={selectedCertificate}
+          onClose={() => setSelectedCertificate(null)}
+        />
+      )}
     </div>
   );
 }
