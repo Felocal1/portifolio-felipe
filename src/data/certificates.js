@@ -2,6 +2,17 @@
 export default [
   {
     id: 1,
+    title: "GitHub Copilot: Produtividade com IA para Desenvolvedores",
+    issuer: "Especialização em Inteligência Artificial & Engenharia",
+    category: "Inteligência Artificial",
+    badgeIcon: "🐙",
+    description: "Capacitação avançada no uso de inteligência artificial aplicada ao fluxo de desenvolvimento com GitHub Copilot: geração de código contextual, pair programming com IA, refatoração orientada por prompts inteligentes, criação de testes automatizados e aceleração do ciclo de vida de software.",
+    skills: ["GitHub Copilot", "Pair Programming IA", "Refatoração Contextual", "Testes Automatizados", "Produtividade Dev"],
+    pdfUrl: "/certificados/github_copilot_certificado.pdf",
+    highlight: "Turma Especializada Out/2026"
+  },
+  {
+    id: 2,
     title: "Fundamentos de Inteligência Artificial Moderna",
     issuer: "Especialização em IA",
     category: "Inteligência Artificial",
@@ -12,7 +23,7 @@ export default [
     highlight: "Credencial em IA Generativa"
   },
   {
-    id: 2,
+    id: 3,
     title: "Chatbots, Copilots & Agentes Inteligentes",
     issuer: "Inteligência Artificial & Automação",
     category: "Inteligência Artificial",
@@ -23,7 +34,7 @@ export default [
     highlight: "Especialização em Agentes e RAG"
   },
   {
-    id: 3,
+    id: 4,
     title: "Desenvolvimento Java com Inteligência Artificial",
     issuer: "Engenharia de Software & IA",
     category: "Backend & IA",
@@ -34,7 +45,7 @@ export default [
     highlight: "Java + IA Generativa"
   },
   {
-    id: 4,
+    id: 5,
     title: "Programação e Desenvolvimento em Python",
     issuer: "Desenvolvimento de Aplicações",
     category: "Backend & Python",
@@ -45,7 +56,7 @@ export default [
     highlight: "Automação & Lógica"
   },
   {
-    id: 5,
+    id: 6,
     title: "Desenvolvimento Web: Bootstrap 5, HTML5, CSS3 & JavaScript",
     issuer: "Alura Cursos Online de Tecnologia",
     category: "Desenvolvimento Web",

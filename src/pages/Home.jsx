@@ -131,8 +131,8 @@ export default function Home() {
         </div>
 
         <div className="p-6 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800/80 shadow-sm hover:border-indigo-500/40 transition">
-          <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400">5 Certificações</div>
-          <div className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">IA, Agentes & Dev</div>
+          <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400">6 Certificações</div>
+          <div className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">IA, Copilot & Dev</div>
           <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">Credenciais em PDF autênticas</div>
         </div>
       </section>

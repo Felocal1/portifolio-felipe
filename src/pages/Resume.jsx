@@ -293,7 +293,7 @@ export default function Resume() {
             </div>
           </div>
           <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-            5 Certificados Disponíveis
+            {certificates.length} Certificados Disponíveis
           </span>
         </div>
 
