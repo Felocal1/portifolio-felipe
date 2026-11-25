@@ -176,7 +176,7 @@ export default function Projects() {
                 ) : (
                   <span className="px-3.5 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs font-medium border border-gray-200 dark:border-gray-700/60 flex items-center gap-1.5">
                     <span>🔒</span>
-                    <span>Ambiente Corporativo / Intranet</span>
+                    <span>Ambiente Corporativo / Intranet (Localhost)</span>
                   </span>
                 )}
 

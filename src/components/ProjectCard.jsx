@@ -109,7 +109,15 @@ export default function ProjectCard({ project, onSelect }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
-            ) : null}
+            ) : (
+              <span
+                className="py-2.5 px-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-xs font-medium border border-gray-200 dark:border-gray-700/60 flex items-center gap-1"
+                title="Projeto de ambiente interno corporativo (Localhost)"
+              >
+                <span>🔒</span>
+                <span>Localhost</span>
+              </span>
+            )}
 
             {githubUrl ? (
               <a

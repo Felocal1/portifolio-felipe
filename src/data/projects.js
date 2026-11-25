@@ -1,5 +1,6 @@
 // src/data/projects.js
 import painelInventarioImg from '../assets/projects/painel-inventario.jpg';
+import tempoEmissaoNfImg from '../assets/projects/tempo_emissao_nf.jpg';
 import docmanagerImg from '../assets/projects/docmanager.jpg';
 import controleNobreaksImg from '../assets/projects/controle-nobreaks.jpg';
 import suporteFaqImg from '../assets/projects/suporte-faq.jpg';
@@ -26,6 +27,24 @@ export default [
   },
   {
     id: 2,
+    title: "Diagnóstico de Tempos – Emissão de NF-e",
+    category: "Sistemas & TI",
+    description: "Sistema analítico em tempo real para monitorar a performance de emissão fiscal (NF-e), segregando o tempo interno de preparação do ERP e o tempo de resposta da SEFAZ.",
+    longDescription: "Solução corporativa desenvolvida para auditoria e eliminação de gargalos operacionais no faturamento e expedição. O sistema monitora a emissão de notas fiscais eletrônicas com filtros por filial (Eletromil - Matriz e filiais), tipo de documento e datas, discriminando exatamente quanto tempo foi gasto na preparação interna dos dados pelo ERP versus o tempo de autorização nos servidores da SEFAZ. Apresenta métricas agregadas de tempo médio (6.51s), preparação (5.65s), SEFAZ (0.87s), picos máximos e mínimos, além de grid detalhado por documento fiscal.",
+    image: tempoEmissaoNfImg,
+    tech: ["Next.js", "TypeScript", "React", "SQL Server", "Dashboards", "NF-e / Fiscal", "Auditoria"],
+    metrics: "197+ documentos analisados | Segregação ERP vs SEFAZ | 0.66s a 68s",
+    highlights: [
+      "Diagnóstico preciso entre latência interna de ERP vs tempo de autorização SEFAZ",
+      "Filtros avançados por filial (Eletromil), tipo de documento e intervalo de datas",
+      "Painel com métricas de tempo médio total, preparação, SEFAZ, máximos e mínimos",
+      "Tabela analítica de documentos com rastreamento individualizado de latência"
+    ],
+    liveUrl: "", // Aplicação corporativa restrita / localhost
+    githubUrl: "https://github.com/Felocal1"
+  },
+  {
+    id: 3,
     title: "DocManager - Gestão de Documentos",
     category: "Desenvolvimento Web",
     description: "Plataforma de gestão eletrônica de documentos para empresas, com pesquisa ágil por CNPJ, cadastro de clientes e auditoria de arquivos.",
@@ -43,7 +62,7 @@ export default [
     githubUrl: "https://github.com/Felocal1"
   },
   {
-    id: 3,
+    id: 4,
     title: "Controle de Nobreaks Corporativos",
     category: "Sistemas & TI",
     description: "Sistema para catálogo, monitoramento de capacidade e rastreamento de nobreaks de alta potência distribuídos entre filiais e matriz da Eletromil.",
@@ -61,7 +80,7 @@ export default [
     githubUrl: "https://github.com/Felocal1"
   },
   {
-    id: 4,
+    id: 5,
     title: "Central de Ajuda & FAQ de TI",
     category: "Sistemas & TI",
     description: "Portal interativo de autoatendimento para suporte corporativo, padronizando procedimentos comuns e agilizando resoluções de chamados.",
@@ -79,7 +98,7 @@ export default [
     githubUrl: "https://github.com/Felocal1"
   },
   {
-    id: 5,
+    id: 6,
     title: "Missão Espacial – Gamificação & Storytelling",
     category: "Desenvolvimento Web",
     description: "Experiência interativa de narrativa visual digital com temática espacial, animações e integração com estética sci-fi (A Saga Continua).",
